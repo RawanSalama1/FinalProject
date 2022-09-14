@@ -1,11 +1,17 @@
 /// <reference types="cypress" />
-const CustomerLoginButton = '[ng-click="customer()"]'
-describe('Check the buttons of home page layout', () => {
-    before('Visit XYZ Website', () => {
-        cy.visit('https://www.globalsqa.com/angularJs-protractor/BankingProject/#/login')
-    })
-    it('Open Customr Login Page', () => {
-        cy.get(CustomerLoginButton).click();
 
+import CustomerLogin from "../../support/pages/CustomerLogin";
+import VisitWeb from "../../support/pages/VisitWeb";
+import home from "../../support/pages/home";
+
+const visit = new VisitWeb();
+const Customer = new CustomerLogin();
+describe('Customer login page', () => {
+    it('Select account name and login', () => {
+        visit.visit()
+        Customer.Login()
+        Customer.Assert()
+        Customer.Deposit()
+        Customer.Witdrawl()
     })
 })
