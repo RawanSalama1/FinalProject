@@ -2,6 +2,7 @@
 const CustomerLoginButton = '[ng-click="customer()"]'
 const SelectName = '#userSelect'
 const Login = '[type= "submit"]'
+const LogOut = '[ng-show="logout"]'
 const Text = '.fontBig'
 const AccNumber = '.ng-binding'
 const selected = '[selected = "selected"]'
@@ -9,16 +10,17 @@ const Deposit = '[ng-class="btnClass2"]'
 const amount = '[ng-model="amount"]'
 const submit = '[type="submit"]'
 const message = '[ng-show="message"]'
-const withdrawal = '[ng-class="btnClass3"]'
-const amountWithDrawal = '[type="number"]'
-const confirm = '[type="submit"]'
-const withdrawalMessage = '[class="error ng-binding"]'
+const Balance = '.borderM > :nth-child(3) > :nth-child(2)'
+const Trans = '[ng-class="btnClass1"]'
+const table = '.ng-binding'
+const URLTrans = 'https://www.globalsqa.com/angularJs-protractor/BankingProject/#/listTx'
 class CustomerLogin {
     Login() {
         cy.get(CustomerLoginButton).click();
-        cy.get(SelectName).eq(0).select(1);
+        cy.get(SelectName).eq(0).select(2);
         cy.get(Login).should('be.visible').click()
         cy.get(Text).should('exist')
+        cy.get(LogOut).should('exist');
 
     }
     Assert() {
@@ -28,20 +30,26 @@ class CustomerLogin {
             cy.get(AccNumber).contains(num).should('be.visible')
 
         })
+        cy.get(Balance).then($BalNum => {
+            const BalanceNum = $BalNum.text()
+            cy.log(BalanceNum)
+            cy.get(Balance).should('be.visible')
+
+        })
     }
     Deposit() {
         cy.get(Deposit).click();
-        cy.get(amount).type(100)
-        cy.get(submit).click()
+        cy.get(amount).type(200)
+        cy.get(submit).contains('Deposit').click()
+        cy.get(Balance).then($BalNum => {
+            const BalanceNum = $BalNum.text()
+            cy.log(BalanceNum)
+            cy.get(Balance).should('be.visible')
+        })
         cy.get(message).contains('Deposit Successful').should('exist')
 
     }
-    Witdrawl() {
-        cy.get(withdrawal).click()
-        cy.get(amountWithDrawal).type(100)
-        cy.get(confirm).click()
-        cy.get(withdrawalMessage).contains('Transaction successful').should('exist')
-    }
+
 }
 
 export default CustomerLogin
