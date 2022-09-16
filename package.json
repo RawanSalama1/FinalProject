@@ -6,6 +6,10 @@
     "reports": "^0.1.1",
     "test": "^3.2.1"
   },
+  "scripts": {
+    "cypress:open": "cypress open",
+    "test": "cypress run --record --key a37ec9d7-ac4d-46f7-97f1-4737dfb88f27"
+  },
   "devDependencies": {
     "cypress-mochawesome-reporter": "^3.2.2",
     "cypress-multi-reporters": "^1.6.1",
