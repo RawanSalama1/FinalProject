@@ -4,8 +4,6 @@ import VisitWeb from "../../support/pages/VisitWeb";
 import homePage from "../../support/pages/homePage";
 import Withdrawal from "../../support/pages/Withdrawal";
 import Transaction from "../../support/pages/Transaction";
-import BankManagerPage from "../../support/pages/BankManagerPage"
-const Manager = new BankManagerPage();
 const visit = new VisitWeb();
 const Customer = new CustomerLogin();
 const withdrawl = new Withdrawal();
