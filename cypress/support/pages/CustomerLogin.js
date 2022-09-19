@@ -11,9 +11,6 @@ const amount = '[ng-model="amount"]'
 const submit = '[type="submit"]'
 const message = '[ng-show="message"]'
 const Balance = '.borderM > :nth-child(3) > :nth-child(2)'
-const Trans = '[ng-class="btnClass1"]'
-const table = '.ng-binding'
-const URLTrans = 'https://www.globalsqa.com/angularJs-protractor/BankingProject/#/listTx'
 class CustomerLogin {
     Login() {
         cy.get(CustomerLoginButton).click();

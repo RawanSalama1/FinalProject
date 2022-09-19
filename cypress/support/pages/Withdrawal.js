@@ -4,11 +4,9 @@ const amountWithDrawal = '[ng-model="amount"]'
 const confirm = '[type="submit"]'
 const withdrawalMessage = '[ng-show="message"]'
 const Balance = '.borderM > :nth-child(3) > :nth-child(2)'
-const URLWithdraw = 'https://www.globalsqa.com/angularJs-protractor/BankingProject/#/account'
 class Withdrawal {
     Witdrawl() {
         cy.get(withdrawal).click()
-        cy.intercept(URLWithdraw).as('withdraw')
         cy.wait(2000)
         const num = 100
         cy.get(amountWithDrawal).type(num)
