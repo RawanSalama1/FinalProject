@@ -11,12 +11,17 @@ describe("Login to Bank Manager", () => {
     it('Test Manager Page', () => {
         visit.visit()
         Manager.open()
+    })
+    it('Test Add Customer ', () => {
         Manager.AddCustomer()
+    })
+    it('Test Open Account', () => {
         Manager.openAccount()
+    })
+    it('Test Customers Page', () => {
         Manager.Customers()
         back.homePage()
     })
-
 
 })
 
