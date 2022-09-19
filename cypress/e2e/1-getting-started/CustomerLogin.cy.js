@@ -19,10 +19,10 @@ describe('Customer login page', () => {
         Customer.Deposit()
 
     })
-    it('Withdrawal', () => {
+    it('Test withdrawal page', () => {
         withdrawl.Witdrawl()
     })
-    it('Transaction', () => {
+    it('Test Transaction page', () => {
         transfer.trans()
         back.homePage()
     })
